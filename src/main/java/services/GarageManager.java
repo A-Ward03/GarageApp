@@ -60,4 +60,8 @@ public class GarageManager {
         vehicle.setMake(make);
         vehicle.setModel(model);
     }
+
+    public Scanner getScanner() {
+        return sc;
+    }
 }
