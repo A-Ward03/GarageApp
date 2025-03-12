@@ -60,10 +60,6 @@ public class Vehicle {
 
     @Override
     public String toString() {
-        return "Vehicle - {" + this.getMake() + " " + this.getModel() + "}" +
-                " VIN: " + this.getVin() +
-                " Registration: " + this.getCurrentRegistration() +
-                " Colour: " + this.getColour() +
-                " Manufacture Year: " + this.getManufactureYear();
+        return "Vehicle - {" + this.getMake() + " " + this.getModel() + "}";
     }
 }

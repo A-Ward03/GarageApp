@@ -7,9 +7,11 @@ import java.util.Scanner;
 
 public class GarageManager {
     private Garage myGarage;
+    private Scanner sc;
 
-    public  GarageManager() {
+    public GarageManager() {
         this.myGarage = new Garage();
+        this.sc = new Scanner(System.in);
     }
 
     public Garage getMyGarage() {
@@ -21,30 +23,35 @@ public class GarageManager {
     }
 
     public void addToGarage() {
-        Scanner sc = new Scanner(System.in);
         while (true) {
             System.out.println("What is your car vin?");
             String vin = sc.nextLine();
             if (vin.isEmpty()) {
                 break;
             }
-            Vehicle newVehicle = new Vehicle(vin);
-            myGarage.addVehicle(newVehicle);
-            System.out.println("Would you like to provide the make & model? (yes/no)");
-            String answer = sc.nextLine();
-            if (answer.toLowerCase().equals("yes")) {
-                getMakeAndModel(newVehicle);
-            }
-            System.out.println("Vehicle added to garage!");
+            addVehicleToGarage(vin);
         }
         System.out.println(myGarage);
     }
 
-    public void getMakeAndModel(Vehicle vehicle) {
-        Scanner sc = new Scanner(System.in);
+    private void addVehicleToGarage(String vin) {
+        Vehicle newVehicle = new Vehicle(vin);
+        myGarage.addVehicle(newVehicle);
+        System.out.println("Would you like to provide the make & model? (yes/no)");
+        String answer = sc.nextLine();
+        if (answer.equalsIgnoreCase("yes")) {
+            getMakeAndModel(newVehicle);
+        }
+        System.out.println("Vehicle added to garage!");
+    }
 
+    private void getMakeAndModel(Vehicle vehicle) {
         System.out.println("What is the make & model of your vehicle?");
         String makeAndModel = sc.nextLine();
+        if (makeAndModel.isEmpty() || !makeAndModel.contains(" ")) {
+            System.out.println("Invalid input. Please provide both make and model.");
+            return;
+        }
 
         String[] split = makeAndModel.split(" ", 2);
         String make = split[0];
@@ -53,5 +60,4 @@ public class GarageManager {
         vehicle.setMake(make);
         vehicle.setModel(model);
     }
-
 }
