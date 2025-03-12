@@ -3,12 +3,12 @@ package model;
 import java.util.Date;
 
 public class Vehicle {
-    private final String vin;
-    private String currentRegistration;
-    private String Make;
-    private String model;
-    private String colour;
-    private Date manufactureYear;
+    private final String vin;   // Vehicle Identification Number
+    private String currentRegistration; // Current registration number
+    private String Make;    // Make of the vehicle
+    private String model;   // Model of the vehicle
+    private String colour;  // Colour of the vehicle
+    private Date manufactureYear;   // Date of manufacture
 
     public Vehicle(String vin) {
         this.vin = vin;
@@ -60,6 +60,10 @@ public class Vehicle {
 
     @Override
     public String toString() {
-        return "Vehicle - {" + this.getMake() + " " + this.getModel() + "}";
+        return "Vehicle - {" + this.getMake() + " " + this.getModel() + "}" +
+                " VIN: " + this.getVin() +
+                " Registration: " + this.getCurrentRegistration() +
+                " Colour: " + this.getColour() +
+                " Manufacture Year: " + this.getManufactureYear();
     }
 }
