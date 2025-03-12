@@ -14,8 +14,23 @@ public class GarageManager {
         this.sc = new Scanner(System.in);
     }
 
+    public Garage getMyGarage() {
+        return myGarage;
+    }
+
+    public void setMyGarage(Garage myGarage) {
+        this.myGarage = myGarage;
+    }
+
+    public Scanner getSc() {
+        return sc;
+    }
+
+    public void setSc(Scanner sc) {
+        this.sc = sc;
+    }
+
     public void addToGarage() {
-        Scanner sc = new Scanner(System.in);
         while (true) {
             System.out.println("What is your car vin?");
             String vin = sc.nextLine();
@@ -39,4 +54,5 @@ public class GarageManager {
         }
         System.out.println(myGarage);
     }
+
 }
