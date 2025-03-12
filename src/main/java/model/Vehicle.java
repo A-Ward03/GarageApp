@@ -57,4 +57,9 @@ public class Vehicle {
     public void setManufactureYear(Date manufactureYear) {
         this.manufactureYear = manufactureYear;
     }
+
+    @Override
+    public String toString() {
+        return "Vehicle - {" + this.getMake() + " " + this.getModel() + "}";
+    }
 }

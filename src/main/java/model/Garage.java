@@ -9,6 +9,10 @@ public class Garage {
         this.garage = new ArrayList<>();
     }
 
+    public void addVehicle(Vehicle vehicle) {
+        garage.add(vehicle);
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
