@@ -25,8 +25,6 @@ public class GarageApp {
         } else if (response.equals("add")) {
             myGarageManager.addToGarage();
         }
-
     }
-
 }
 
