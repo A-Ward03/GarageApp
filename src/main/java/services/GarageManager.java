@@ -7,11 +7,9 @@ import java.util.Scanner;
 
 public class GarageManager {
     private Garage myGarage;
-    private Scanner sc;
 
     public  GarageManager() {
         this.myGarage = new Garage();
-        this.sc = new Scanner(System.in);
     }
 
     public Garage getMyGarage() {
@@ -22,15 +20,8 @@ public class GarageManager {
         this.myGarage = myGarage;
     }
 
-    public Scanner getSc() {
-        return sc;
-    }
-
-    public void setSc(Scanner sc) {
-        this.sc = sc;
-    }
-
     public void addToGarage() {
+        Scanner sc = new Scanner(System.in);
         while (true) {
             System.out.println("What is your car vin?");
             String vin = sc.nextLine();
@@ -42,17 +33,25 @@ public class GarageManager {
             System.out.println("Would you like to provide the make & model? (yes/no)");
             String answer = sc.nextLine();
             if (answer.toLowerCase().equals("yes")) {
-                System.out.println("What is the make & model of your vehicle?");
-                String makeAndModel = sc.nextLine();
-                String[] split = makeAndModel.split(" ", 2);
-                String make = split[0];
-                String model = split[1];
-                newVehicle.setMake(make);
-                newVehicle.setModel(model);
+                getMakeAndModel(newVehicle);
             }
             System.out.println("Vehicle added to garage!");
         }
         System.out.println(myGarage);
+    }
+
+    public void getMakeAndModel(Vehicle vehicle) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("What is the make & model of your vehicle?");
+        String makeAndModel = sc.nextLine();
+
+        String[] split = makeAndModel.split(" ", 2);
+        String make = split[0];
+        String model = split[1];
+
+        vehicle.setMake(make);
+        vehicle.setModel(model);
     }
 
 }
